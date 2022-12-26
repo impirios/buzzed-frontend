@@ -1,0 +1,45 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" >
+    <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32">
+            
+        </svg>
+        <span class="fs-4">Buzzed</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <div *ngFor="let r of routes;let i=index">
+
+            <li class="nav-item">
+                <a  [routerLink]="[r.routeTo]" (click)="setIndex(i)" class="nav-link" [ngClass]="(selectedIndex==i)?'active':'text-white'" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        
+                    </svg>
+                    {{r.displayName}}
+                </a>
+            </li>
+        </div>
+
+    </ul>
+    <hr>
+
+    <div>
+        <button class="bg-dark" style="color: white;" *ngIf="!isLoggedIn" [routerLink]="['/login']">Login</button>
+
+    </div>
+    <div class="dropdown" *ngIf="isLoggedIn">
+        <a  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{user.thumbImage}}" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{user.alias}}</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" [routerLink]="['/user',user.alias]" >Profile</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
+        </ul>
+
+
+    </div>
+</div>

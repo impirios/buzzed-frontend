@@ -1,0 +1,29 @@
+<div class="text-white">
+    {{userDetails.name}}
+</div>
+
+<div>
+    <div class="text-center">
+        <img class="rounded-circle" src="{{userDetails.thumbImage}}" alt="">
+        <h4 class="text-white">{{userDetails.name}}</h4>
+        <p class="text-white p-0">{{userDetails.alias}}</p>
+        <a class="text-priimary">{{userDetails.email}}</a>
+    </div>
+    <div class="row text-white py-3">
+        <div [routerLink]="['',userDetails._id]" class="col-md-4 text-center">
+            Buzz <br>
+            {{stats.posts}}
+        </div>
+        <div class="col-md-4 text-center">
+            Followers<br>
+            {{stats.followers}}
+
+        </div>
+        <div class="col-md-4 text-center">
+            Following <br>
+            {{stats.following}}
+
+        </div>
+    </div>
+    
+</div>

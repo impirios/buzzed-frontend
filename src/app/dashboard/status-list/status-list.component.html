@@ -1,0 +1,19 @@
+<div *ngIf="!hide">
+    <app-create-update-status></app-create-update-status>
+</div>
+<div *ngIf="hide">
+    <h1 style="color: white;">Buzzes</h1>
+</div>
+<div *ngFor="let status of statuses">
+    <div>
+        <div class="d-flex profile">
+            <div class="profilePic">
+                <img src="{{status.userData.thumbImage}}" class="rounded-circle" alt="">
+            </div>
+            <div class="profileCont">
+                <h4 [routerLink]="['/user',status.authorId]">{{status.userData.name}} <span style="color: #a3a2a2; font-weight: normal;"> @{{status.userData.alias}}</span> <span style="color: #a3a2a2; font-weight: normal;"> {{status.created_at | dateAgo}}</span></h4>
+                <p>{{status.content}}</p>
+            </div>
+        </div>
+    </div>
+</div>

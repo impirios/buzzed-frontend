@@ -1,0 +1,8 @@
+
+<div class="inputContent">
+    <textarea type="text" [(ngModel)]="content" placeholder="What's happening?" rows="5" class="w-100 form-control bg-dark text-white"></textarea>
+
+    <div class="text-end btttnSub">
+        <button class="btn btn-primary" (click)="save()" [disabled]="!content.length" >Create a Buzz</button>
+    </div>
+</div>
